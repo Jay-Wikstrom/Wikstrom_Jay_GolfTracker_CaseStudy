@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
