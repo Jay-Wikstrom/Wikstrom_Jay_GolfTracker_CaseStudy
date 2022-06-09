@@ -19,4 +19,6 @@ public class Courses {
 
     @Column(nullable = false)
     private String courseName;
+
+    private String courseLocation;
 }

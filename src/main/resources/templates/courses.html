@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+    <title>Index</title>
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <div><h2>Course List</h2></div>
+
+        <div>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+
+                    <th>Course Name</th>
+                    <th>Course Location</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="course : ${listCourses}">
+                    <td th:text = "${course.courseName}"/>
+                    <td th:text = "${course.courseLocation}"/>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="m-2">
+            <a class="h3" th:href="@{/courses/new}" >Add new Course</a>
+        </div>
+    </div>
+</body>
+</html>
