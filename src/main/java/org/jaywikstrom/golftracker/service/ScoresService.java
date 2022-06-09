@@ -23,4 +23,8 @@ public class ScoresService {
         String userEmail = auth.getName();
         return (List<Scores>) scoresRepository.findAllByUserEmail(userEmail);
     }
+
+    public void save(Scores scores){
+        scoresRepository.save(scores);
+    }
 }
