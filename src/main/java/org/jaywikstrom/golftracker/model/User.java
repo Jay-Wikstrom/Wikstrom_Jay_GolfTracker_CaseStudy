@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +22,8 @@ public class User {
 
     private String firstName;
     private String lastName;
+
+    @Column(nullable = false)
     private String email;
     private String password;
 
@@ -32,5 +35,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+
+    @ManyToMany(mappedBy = "userRatings")
+    private Set<Ratings> userRatings;
 
 }

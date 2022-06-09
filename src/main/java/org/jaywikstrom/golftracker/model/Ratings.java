@@ -27,8 +27,8 @@ public class Ratings {
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "userRatings",
-            joinColumns = @JoinColumn(name = "ratingsId"),
-            inverseJoinColumns = @JoinColumn(name = "userId")
+            joinColumns = @JoinColumn(name = "ratingsId", referencedColumnName = "courseRatingId"),
+            inverseJoinColumns = @JoinColumn(name = "userId", referencedColumnName = "id")
     )
     private Set<User> userRatings;
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import java.util.List;
 
 @Controller
@@ -16,7 +17,7 @@ public class RatingsController {
 
     @GetMapping("/ratings")
     public String showRatings(Model model){
-        List<Ratings> listRatings = ratingsService.listAll();
+        List<Ratings> listRatings = ratingsService.listAllByUserId();
         model.addAttribute("listRatings", listRatings);
 
         return "ratings";
