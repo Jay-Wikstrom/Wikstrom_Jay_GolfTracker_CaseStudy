@@ -39,4 +39,7 @@ public class User {
     @ManyToMany(mappedBy = "userRatings")
     private Set<Ratings> userRatings;
 
+    @ManyToMany(mappedBy = "userScores")
+    private Set<Scores> userScores;
+
 }
