@@ -15,4 +15,8 @@ public class CoursesService {
     public List<Courses> listAll(){
         return (List<Courses>) coursesRepository.findAll();
     }
+
+    public void save(Courses courses){
+        coursesRepository.save(courses);
+    }
 }
