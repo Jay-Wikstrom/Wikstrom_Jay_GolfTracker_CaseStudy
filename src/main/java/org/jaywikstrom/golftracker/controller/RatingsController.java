@@ -17,7 +17,7 @@ public class RatingsController {
 
     @GetMapping("/ratings")
     public String showRatings(Model model){
-        List<Ratings> listRatings = ratingsService.listAllByUserId();
+        List<Ratings> listRatings = ratingsService.listAllByUserEmail();
         model.addAttribute("listRatings", listRatings);
 
         return "ratings";

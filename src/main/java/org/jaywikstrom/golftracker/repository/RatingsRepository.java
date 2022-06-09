@@ -11,5 +11,5 @@ import java.util.List;
 public interface RatingsRepository extends JpaRepository<Ratings, Integer> {
 
     @Query(value = "SELECT r FROM Ratings r JOIN r.userRatings ur WHERE ur.email = :userEmail")
-    List <Ratings> findAllByUserId(@Param("userEmail") String userEmail);
+    List <Ratings> findAllByUserEmail(@Param("userEmail") String userEmail);
 }

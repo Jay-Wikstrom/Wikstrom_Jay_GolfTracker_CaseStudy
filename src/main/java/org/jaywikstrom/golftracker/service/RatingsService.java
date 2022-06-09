@@ -15,12 +15,12 @@ public class RatingsService {
     @Autowired
     private RatingsRepository ratingsRepository;
 
-    public List<Ratings> listAllByUserId(){
+    public List<Ratings> listAllByUserEmail(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println(auth.getDetails());
         System.out.println(auth.getName());
         String userEmail = auth.getName();
 
-        return (List<Ratings>) ratingsRepository.findAllByUserId(userEmail);
+        return (List<Ratings>) ratingsRepository.findAllByUserEmail(userEmail);
     }
 }
