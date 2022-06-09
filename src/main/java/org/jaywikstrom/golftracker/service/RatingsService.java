@@ -1,6 +1,7 @@
 package org.jaywikstrom.golftracker.service;
 
 import org.jaywikstrom.golftracker.model.Ratings;
+import org.jaywikstrom.golftracker.model.User;
 import org.jaywikstrom.golftracker.repository.RatingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,5 +23,9 @@ public class RatingsService {
         String userEmail = auth.getName();
 
         return (List<Ratings>) ratingsRepository.findAllByUserEmail(userEmail);
+    }
+
+    public void save(Ratings ratings){
+        ratingsRepository.save(ratings);
     }
 }
