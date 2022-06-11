@@ -10,4 +10,7 @@ import java.util.List;
 public interface ScoresRepository extends JpaRepository <Scores, Integer> {
     @Query(value = "SELECT s FROM Scores s JOIN s.userScores us WHERE us.email = :userEmail")
     List<Scores> findAllByUserEmail(@Param("userEmail") String userEmail);
+
+    @Query(value = "INSERT INTO userScores(scoresId, userId) VALUES (:scoresId, :userId)", nativeQuery = true)
+    public void saveUserScores(@Param("scoresId") Integer scoresId, @Param("userId") Long userId);
 }
