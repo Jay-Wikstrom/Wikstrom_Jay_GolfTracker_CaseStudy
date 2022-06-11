@@ -1,6 +1,7 @@
 package org.jaywikstrom.golftracker.service;
 
 
+import org.jaywikstrom.golftracker.exceptions.ScoresNotFoundException;
 import org.jaywikstrom.golftracker.model.Scores;
 import org.jaywikstrom.golftracker.model.User;
 import org.jaywikstrom.golftracker.repository.ScoresRepository;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ScoresService {
@@ -40,5 +42,13 @@ public class ScoresService {
 
         Integer scoreId = scores.getId();
         scoresRepository.saveUserScores(scoreId, userId);
+    }
+
+    public Scores get(Integer id) throws ScoresNotFoundException{
+        Optional<Scores> result = scoresRepository.findById(id);
+        if(result.isPresent()){
+            return result.get();
+        }
+        throw new ScoresNotFoundException("Could not find any scores with ID " + id);
     }
 }
