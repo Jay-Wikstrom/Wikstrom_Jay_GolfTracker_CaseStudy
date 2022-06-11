@@ -40,6 +40,10 @@
     <br>
     <div class="text-center"><h2>Save Ratings</h2></div>
 
+    <div th:if="${message}" class="alert alert-success text-center">
+      [[${message}]]
+    </div>
+
     <form th:action="@{/ratings/save}" method="post" th:object="${rating}" style="max-width: 500px; margin: 0 auto;">
       <input type="hidden" th:field="*{courseRatingId}" />
       <div class="border border-secondary rounded p-3">

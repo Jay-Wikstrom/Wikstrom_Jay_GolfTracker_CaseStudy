@@ -12,4 +12,8 @@ public interface RatingsRepository extends JpaRepository<Ratings, Integer> {
 
     @Query(value = "SELECT r FROM Ratings r JOIN r.userRatings ur WHERE ur.email = :userEmail")
     List <Ratings> findAllByUserEmail(@Param("userEmail") String userEmail);
+
+    @Query(value = "INSERT INTO userRatings(ratingsId, userId) VALUES (:ratingsId, :userId)", nativeQuery = true)
+    public void saveUserRatings(@Param("ratingsId") Integer ratingId, @Param("userId") Long userId);
+
 }

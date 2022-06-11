@@ -48,6 +48,7 @@
                     <th>ID</th>
                     <th>Course</th>
                     <th>Course Rating</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,6 +56,9 @@
                         <td th:text = "${rating.courseRatingId}"/>
                         <td th:text = "${rating.courseName}"/>
                         <td th:text = "${rating.courseRating}"/>
+                        <td>
+                            <a class="h4 mr-3" th:href="@{'ratings/edit/' + ${rating.courseRatingId}}">Edit</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

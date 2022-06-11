@@ -7,7 +7,8 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
