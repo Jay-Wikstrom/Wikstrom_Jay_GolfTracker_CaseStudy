@@ -31,7 +31,7 @@ public class Scores {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany()
     @JoinTable(
             name = "userScores",
             joinColumns = @JoinColumn(name = "scoresId", referencedColumnName = "id"),

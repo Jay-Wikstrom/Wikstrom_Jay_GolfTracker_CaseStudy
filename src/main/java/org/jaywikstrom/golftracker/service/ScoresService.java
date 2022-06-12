@@ -51,4 +51,12 @@ public class ScoresService {
         }
         throw new ScoresNotFoundException("Could not find any scores with ID " + id);
     }
+
+    public void delete(Integer id) throws ScoresNotFoundException{
+        Long count = scoresRepository.countById(id);
+        if(count == null || count == 0){
+            throw new ScoresNotFoundException("Could not find any scores with ID " +id);
+        }
+        scoresRepository.deleteById(id);
+    }
 }

@@ -13,4 +13,6 @@ public interface ScoresRepository extends JpaRepository <Scores, Integer> {
 
     @Query(value = "INSERT INTO userScores(scoresId, userId) VALUES (:scoresId, :userId)", nativeQuery = true)
     public void saveUserScores(@Param("scoresId") Integer scoresId, @Param("userId") Long userId);
+
+    public Long countById(Integer id);
 }

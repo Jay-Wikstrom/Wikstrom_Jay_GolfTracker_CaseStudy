@@ -24,7 +24,7 @@ public class Ratings {
     private Integer courseRating;
 
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany()
     @JoinTable(
             name = "userRatings",
             joinColumns = @JoinColumn(name = "ratingsId", referencedColumnName = "courseRatingId"),

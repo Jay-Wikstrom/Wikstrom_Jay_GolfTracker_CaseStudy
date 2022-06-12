@@ -64,6 +64,7 @@
           <td th:text = "${score.date}"/>
           <td>
             <a class="h4 mr-3" th:href="@{'scores/edit/' + ${score.id}}">Edit</a>
+            <a class="h4 mr-3" th:href="@{'scores/delete/' + ${score.id}}">Delete</a>
           </td>
         </tr>
         </tbody>

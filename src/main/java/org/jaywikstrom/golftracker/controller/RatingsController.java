@@ -3,12 +3,14 @@ package org.jaywikstrom.golftracker.controller;
 import org.jaywikstrom.golftracker.exceptions.RatingsNotFoundException;
 import org.jaywikstrom.golftracker.model.Courses;
 import org.jaywikstrom.golftracker.model.Ratings;
+import org.jaywikstrom.golftracker.repository.RatingsRepository;
 import org.jaywikstrom.golftracker.service.CoursesService;
 import org.jaywikstrom.golftracker.service.RatingsService;
 import org.jaywikstrom.golftracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,8 +27,13 @@ public class RatingsController {
     @Autowired
     private CoursesService coursesService;
 
+    //@Autowired
+    //private UserService userService;
+
     @Autowired
-    private UserService userService;
+    private RatingsRepository ratingsRepository;
+
+
 
     @GetMapping("/ratings")
     public String showRatings(Model model){
@@ -65,4 +72,6 @@ public class RatingsController {
             return "redirect:/ratings";
         }
     }
+
+
 }

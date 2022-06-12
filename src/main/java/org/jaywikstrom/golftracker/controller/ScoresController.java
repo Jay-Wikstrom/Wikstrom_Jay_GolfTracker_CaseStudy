@@ -6,7 +6,7 @@ import org.jaywikstrom.golftracker.model.Scores;
 import org.jaywikstrom.golftracker.service.CoursesService;
 import org.jaywikstrom.golftracker.service.ScoresService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,5 +58,16 @@ public class ScoresController {
             ra.addFlashAttribute("message", s.getMessage());
             return "redirect:/scores";
         }
+    }
+
+    @GetMapping("/scores/delete/{id}")
+    public String deleteScore(@PathVariable("id") Integer id, RedirectAttributes ra){
+        try {
+            scoresService.delete(id);
+            ra.addFlashAttribute("message", "The score has been deleted");
+        } catch (ScoresNotFoundException e){
+            ra.addFlashAttribute("message", e.getMessage());
+        }
+        return "redirect:/scores";
     }
 }
