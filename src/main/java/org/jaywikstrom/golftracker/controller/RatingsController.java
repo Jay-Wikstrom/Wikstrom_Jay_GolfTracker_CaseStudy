@@ -73,5 +73,14 @@ public class RatingsController {
         }
     }
 
-
+    @GetMapping("/ratings/delete/{id}")
+    public String deleteScore(@PathVariable("id") Integer id, RedirectAttributes ra){
+        try {
+            ratingsService.delete(id);
+            ra.addFlashAttribute("message", "The score has been deleted");
+        } catch (RatingsNotFoundException e){
+            ra.addFlashAttribute("message", e.getMessage());
+        }
+        return "redirect:/scores";
+    }
 }

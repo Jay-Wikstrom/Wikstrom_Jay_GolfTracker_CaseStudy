@@ -51,4 +51,11 @@ public class RatingsService {
         throw new RatingsNotFoundException("Could not find any ratings with ID " + id);
     }
 
+    public void delete(Integer id ) throws RatingsNotFoundException{
+        Long count = ratingsRepository.countByCourseRatingId(id);
+        if(count == null || count == 0){
+            throw new RatingsNotFoundException("Could not find any ratings with ID " + id);
+        }
+        ratingsRepository.deleteById(id);
+    }
 }
