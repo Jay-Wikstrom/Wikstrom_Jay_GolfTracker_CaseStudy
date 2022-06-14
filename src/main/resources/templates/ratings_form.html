@@ -45,7 +45,7 @@
     </div>
 
     <form th:action="@{/ratings/save}" method="post" th:object="${rating}" style="max-width: 500px; margin: 0 auto;">
-      <input type="hidden" th:field="*{courseRatingId}" />
+      <input type="hidden" th:field="*{id}" />
       <div class="border border-secondary rounded p-3">
 
         <div class="form-group row">

@@ -10,7 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +21,10 @@ public class RatingsService {
     @Autowired
     private UserRepository userRepository;
 
+    /*
+        Get logged in users email
+        List all the ratings from that user
+     */
     public List<Ratings> listAllByUserEmail(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userEmail = auth.getName();
@@ -29,6 +32,10 @@ public class RatingsService {
         return (List<Ratings>) ratingsRepository.findAllByUserEmail(userEmail);
     }
 
+    /*
+        Get logged in users email
+        Save users ratings
+     */
     public void save(Ratings ratings){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -38,11 +45,14 @@ public class RatingsService {
         Long userId = user.getId();
 
         ratingsRepository.save(ratings);
-        Integer ratingId = ratings.getCourseRatingId();
+        Integer ratingId = ratings.getId();
 
         ratingsRepository.saveUserRatings(ratingId, userId);
     }
 
+    /*
+        Find the rating by id if id is present
+     */
     public Ratings get(Integer id) throws RatingsNotFoundException {
         Optional<Ratings> result = ratingsRepository.findById(id);
         if(result.isPresent()){
@@ -51,8 +61,11 @@ public class RatingsService {
         throw new RatingsNotFoundException("Could not find any ratings with ID " + id);
     }
 
+    /*
+        Delete the rating by id if count not null or 0
+     */
     public void delete(Integer id ) throws RatingsNotFoundException{
-        Long count = ratingsRepository.countByCourseRatingId(id);
+        Long count = ratingsRepository.countById(id);
         if(count == null || count == 0){
             throw new RatingsNotFoundException("Could not find any ratings with ID " + id);
         }

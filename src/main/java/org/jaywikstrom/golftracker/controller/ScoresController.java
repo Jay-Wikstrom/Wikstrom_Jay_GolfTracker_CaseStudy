@@ -24,6 +24,10 @@ public class ScoresController {
     @Autowired
     private CoursesService coursesService;
 
+
+    /*
+        Return all scores based on logged in users email
+     */
     @GetMapping("/scores")
     public String showScores(Model model){
         List<Scores> listScores = scoresService.listAllByUserEmail();
@@ -32,6 +36,10 @@ public class ScoresController {
         return "scores";
     }
 
+    /*
+        Form for user to add new scores with
+        select menu to select a golf course from database
+     */
     @GetMapping("/scores/new")
     public String showNewScoreForm(Model model){
         model.addAttribute("score", new Scores());
@@ -40,12 +48,18 @@ public class ScoresController {
         return "scores_form";
     }
 
+    /*
+        Save user scores form data to the database
+     */
     @PostMapping("/scores/save")
     public String saveScore(Scores score, RedirectAttributes ra){
         scoresService.save(score);
         return "redirect:/scores";
     }
 
+    /*
+        Update the row of scores based on rating id of that row
+     */
     @GetMapping("/scores/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra){
         try{
@@ -60,6 +74,9 @@ public class ScoresController {
         }
     }
 
+    /*
+        Delete the row of scores based on the rating id of that row
+     */
     @GetMapping("/scores/delete/{id}")
     public String deleteScore(@PathVariable("id") Integer id, RedirectAttributes ra){
         try {

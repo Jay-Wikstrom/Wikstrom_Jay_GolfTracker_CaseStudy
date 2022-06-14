@@ -16,6 +16,6 @@ public interface RatingsRepository extends JpaRepository<Ratings, Integer> {
     @Query(value = "INSERT INTO userRatings(ratingsId, userId) VALUES (:ratingsId, :userId)", nativeQuery = true)
     public void saveUserRatings(@Param("ratingsId") Integer ratingId, @Param("userId") Long userId);
 
-    public Long countByCourseRatingId(Integer id);
+    public Long countById(Integer id);
 
 }

@@ -53,12 +53,12 @@
                 </thead>
                 <tbody>
                     <tr th:each="rating : ${listRatings}">
-                        <td th:text = "${rating.courseRatingId}"/>
+                        <td th:text = "${rating.id}"/>
                         <td th:text = "${rating.courseName}"/>
                         <td th:text = "${rating.courseRating}"/>
                         <td>
-                            <a class="h4 mr-3" th:href="@{'ratings/edit/' + ${rating.courseRatingId}}">Edit</a>
-                            <a class="h4 mr-3" th:href="@{'ratings/delete/' + ${rating.courseRatingId}}">Delete</a>
+                            <a class="h4 mr-3" th:href="@{'ratings/edit/' + ${rating.id}}">Edit</a>
+                            <a class="h4 mr-3" th:href="@{'ratings/delete/' + ${rating.id}}">Delete</a>
                         </td>
                     </tr>
                 </tbody>

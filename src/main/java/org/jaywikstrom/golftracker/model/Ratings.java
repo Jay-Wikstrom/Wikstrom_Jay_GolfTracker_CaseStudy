@@ -15,7 +15,7 @@ public class Ratings {
     @Id
     @Column(nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer courseRatingId;
+    private Integer id;
 
     @Column(nullable = false)
     private String courseName;
@@ -23,11 +23,10 @@ public class Ratings {
     @Column(nullable = false)
     private Integer courseRating;
 
-
     @ManyToMany()
     @JoinTable(
             name = "userRatings",
-            joinColumns = @JoinColumn(name = "ratingsId", referencedColumnName = "courseRatingId"),
+            joinColumns = @JoinColumn(name = "ratingsId", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "userId", referencedColumnName = "id")
     )
     private Set<User> userRatings;
