@@ -71,4 +71,13 @@ public class RatingsService {
         }
         ratingsRepository.deleteById(id);
     }
+
+    public Long countCourseRating(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userEmail = auth.getName();
+
+        User user = userRepository.findByEmail(userEmail);
+        Long userId = user.getId();
+        return ratingsRepository.countRatingsById(userId);
+    }
 }

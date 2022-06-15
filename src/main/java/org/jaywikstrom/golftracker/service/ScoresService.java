@@ -69,4 +69,14 @@ public class ScoresService {
         }
         scoresRepository.deleteById(id);
     }
+
+    public Long countCourseScores(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userEmail = auth.getName();
+
+        User user = userRepository.findByEmail(userEmail);
+        Long userId = user.getId();
+        return scoresRepository.countScoresById(userId);
+    }
+
 }

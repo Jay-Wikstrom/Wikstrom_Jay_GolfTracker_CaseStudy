@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,7 +23,7 @@
                         class="icon-bar"></span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+                <a class="navbar-brand" th:href="@{/index}">Home</a>
                 <a class="navbar-brand" th:href="@{/ratings}">Ratings</a>
                 <a class="navbar-brand" th:href="@{/scores}">Scores</a>
             </div>
@@ -47,6 +47,22 @@
         <p>
             Welcome <span sec:authentication="principal.username">User</span>
         </p>
+
+        <table class="table table-bordered">
+            <tr>
+                <td>Email: </td>
+                <td><span sec:authentication="principal.username">User</span></td>
+            </tr>
+            <tr>
+                <td>Number of Courses Rated:</td>
+                <td th:text = "${countRatings}"/>
+            </tr>
+            <tr>
+                <td>Rounds of Golf Played:</td>
+                <td th:text = "${countScores}"/>
+
+            </tr>
+        </table>
     </div>
 
     <script type="text/javascript"
