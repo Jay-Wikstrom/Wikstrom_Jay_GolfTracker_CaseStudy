@@ -1,3 +1,23 @@
-body{
-    background-color: #9add9a;
+body {
+    background-image: url("../images/golf.webp");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #81d720;
+}
+
+.table td {
+    text-align: center;
+}
+td{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+a {
+    padding: 35px;
+}
+
+.container{
+    margin-top: 125px;
 }
