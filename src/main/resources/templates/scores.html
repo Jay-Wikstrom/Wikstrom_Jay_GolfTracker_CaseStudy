@@ -13,53 +13,54 @@
   <title>Scores</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="navbar-brand" th:href="@{/index}">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="navbar-brand" th:href="@{/ratings}">Ratings</a>
-      </li>
-      <li class="nav-item active">
-        <a class="navbar-brand" th:href="@{/scores}">Scores</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item active" sec:authorize="isAuthenticated()" >
-        <a class="navbar-brand" th:href="@{/logout}">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-  <div class="container-fluid text-center">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="navbar-brand" th:href="@{/index}">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="navbar-brand" th:href="@{/ratings}">Ratings</a>
+        </li>
+        <li class="nav-item active">
+          <a class="navbar-brand" th:href="@{/scores}">Scores</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active" sec:authorize="isAuthenticated()" >
+          <a class="navbar-brand" th:href="@{/logout}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container container-fluid text-center">
     <div><h2>Course Scores</h2></div>
 
     <div>
-      <table class="table table-bordered">
+      <table class="table table-hover table-responsive table-bordered table-primary">
         <thead class="thead-dark">
         <tr>
-          <th>ID</th>
           <th>Course Name</th>
           <th>Course Score</th>
           <th>Your Score</th>
           <th>Par</th>
           <th>Date</th>
-          <th></th>
+          <th style="width: 8%">Update Score</th>
+          <th style="width: 8%">Delete Score</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="score : ${listScores}">
-          <td th:text = "${score.id}"/>
           <td th:text = "${score.courseName}"/>
           <td th:text = "${score.courseScore}"/>
           <td th:text = "${score.userScore}"/>
           <td th:text = "${score.userScore - score.courseScore}"/>
           <td th:text = "${score.date}"/>
           <td>
-            <a class="h4 mr-3" th:href="@{'scores/edit/' + ${score.id}}">Edit</a>
-            <a class="h4 mr-3" th:href="@{'scores/delete/' + ${score.id}}">Delete</a>
+            <a class="h4 mr-3 navbar-brand" th:href="@{'scores/edit/' + ${score.id}}">Edit</a>
+          </td>
+          <td>
+            <a class="h4 mr-3 navbar-brand" th:href="@{'scores/delete/' + ${score.id}}">Delete</a>
           </td>
         </tr>
         </tbody>
@@ -67,7 +68,7 @@
     </div>
 
     <div class="m-2">
-      <a class="h3" th:href="@{/scores/new}" >Add new score</a>
+      <a class="h3" th:href="@{/scores/new}"><button class="btn-primary btn">Add new score</button></a>
     </div>
   </div>
 </body>

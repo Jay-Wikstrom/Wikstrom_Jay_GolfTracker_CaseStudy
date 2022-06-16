@@ -36,12 +36,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.courseRating {
-
-    margin: 10px 0;
-
-}
-
 select{
     text-align: center;
 }
@@ -49,5 +43,13 @@ select{
 form{
     border: solid 3px black;
     background-color: #cfe2ff;
+}
+
+.courseRating {
+    margin: 10px 0;
+}
+
+.courseScore{
+    margin: 10px 0;
 }
 

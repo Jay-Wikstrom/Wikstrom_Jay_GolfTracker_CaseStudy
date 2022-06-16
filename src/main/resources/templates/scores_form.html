@@ -13,72 +13,72 @@
     <title>Scores</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="navbar-brand" th:href="@{/index}">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="navbar-brand" th:href="@{/ratings}">Ratings</a>
-            </li>
-            <li class="nav-item active">
-                <a class="navbar-brand" th:href="@{/scores}">Scores</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item active" sec:authorize="isAuthenticated()" >
-                <a class="navbar-brand" th:href="@{/logout}">Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="text-center"><h2>Save Scores</h2></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/index}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/ratings}">Ratings</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/scores}">Scores</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active" sec:authorize="isAuthenticated()" >
+                    <a class="navbar-brand" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="text-center container"><h2>Save Scores</h2></div>
 
-    <div th:if="${message}" class="alert alert-success text-center">
-        [[${message}]]
-    </div>
-
-    <form th:action="@{/scores/save}" method="post" th:object="${score}" style="max-width: 500px; margin: 0 auto;">
-        <input type="hidden" th:field="*{id}" />
-        <div class="border border-secondary rounded p-3">
-
-            <div class="form-group row">
-
-
-                <select th:field="*{courseName}">
-                    <option th:each="course : ${listCourses}" th:value="${course.courseName}" th:text="${course.courseName}"></option>
-                </select>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Course Score:</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{courseScore}" class="form-control" required minlength="2" maxlength="45" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Your Score:</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{userScore}" class="form-control" required minlength="2" maxlength="45" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Date:</label>
-                <div class="col-sm-8">
-                    <input type="date" th:field="*{date}" class="form-control"  />
-                </div>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary m-2">Save</button>
-            </div>
-
+        <div th:if="${message}" class="alert alert-success text-center">
+            [[${message}]]
         </div>
 
-    </form>
+        <form th:action="@{/scores/save}" method="post" th:object="${score}" style="max-width: 500px; margin: 0 auto;">
+            <input type="hidden" th:field="*{id}" />
+            <div class="border border-secondary rounded p-3">
 
-</div>
+                <div class="form-group row">
+
+
+                    <select class="form-select-lg" th:field="*{courseName}">
+                        <option th:each="course : ${listCourses}" th:value="${course.courseName}" th:text="${course.courseName}"></option>
+                    </select>
+                </div>
+                <div class="form-group row courseScore">
+                    <label class="col-sm-4 col-form-label">Course Score:</label>
+                    <div class="col-sm-8">
+                        <input type="number" th:field="*{courseScore}" class="form-control" required minlength="2" maxlength="45" />
+                    </div>
+                </div>
+                <div class="form-group row courseScore">
+                    <label class="col-sm-4 col-form-label">Your Score:</label>
+                    <div class="col-sm-8">
+                        <input type="number" th:field="*{userScore}" class="form-control" required minlength="2" maxlength="45" />
+                    </div>
+                </div>
+                <div class="form-group row courseScore">
+                    <label class="col-sm-4 col-form-label">Date:</label>
+                    <div class="col-sm-8">
+                        <input type="date" th:field="*{date}" class="form-control"  />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary m-2">Save</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </body>
 </html>
