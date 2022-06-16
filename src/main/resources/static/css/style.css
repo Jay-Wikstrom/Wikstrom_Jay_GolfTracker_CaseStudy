@@ -19,5 +19,35 @@ a {
 }
 
 .container{
-    margin-top: 125px;
+    margin-top: 50px;
 }
+
+.btn{
+    font-size: 24px;
+}
+
+.homeContainer{
+    margin-top: 100px;
+}
+
+h2 {
+    font-family: Garamond;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.courseRating {
+
+    margin: 10px 0;
+
+}
+
+select{
+    text-align: center;
+}
+
+form{
+    border: solid 3px black;
+    background-color: #cfe2ff;
+}
+
