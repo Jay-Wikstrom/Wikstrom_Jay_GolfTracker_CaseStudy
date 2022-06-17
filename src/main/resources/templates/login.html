@@ -23,7 +23,7 @@
 
     <div class="container container-fluid text-center login">
         <div class="col-md-6 col-md-offset-3">
-            <h1>Login page</h1>
+            <h1>Login</h1>
             <form th:action="@{/login}" method="post">
                 <div th:if="${param.error}">
                     <div class="alert alert-danger">Invalid username or
@@ -48,12 +48,12 @@
                     <div class="row justify-content-md-center">
                         <div class="col-sm-6 col-sm-offset-3">
                             <input type="submit" name="login-submit" id="login-submit"
-                                   class="form-control btn btn-primary" value="Log In" />
+                                   class="form-control btn btn-primary" value="Log In"/>
                         </div>
                     </div>
                 </div>
                 <div class="">
-                 <span>New user? <a href="/" th:href="@{/registration}">Register
+                 <span>New user? <a th:href="@{/registration}">Register
                        here</a></span>
                 </div>
             </form>

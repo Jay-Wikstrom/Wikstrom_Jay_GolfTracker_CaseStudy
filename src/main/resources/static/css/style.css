@@ -73,3 +73,13 @@ input{
     margin-top: 10px;
 }
 
+.register{
+    margin-left: 30%;
+    justify-content: center;
+    text-align: center;
+}
+
+.submitBtn{
+    margin-top: 10px;
+}
+
