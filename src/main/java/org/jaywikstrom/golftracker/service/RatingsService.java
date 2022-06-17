@@ -46,6 +46,7 @@ public class RatingsService {
 
         ratingsRepository.save(ratings);
         Integer ratingId = ratings.getId();
+        
 
         ratingsRepository.saveUserRatings(ratingId, userId);
     }

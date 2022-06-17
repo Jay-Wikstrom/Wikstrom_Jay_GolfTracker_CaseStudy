@@ -83,3 +83,6 @@ input{
     margin-top: 10px;
 }
 
+.clickable{
+    cursor:pointer;
+}

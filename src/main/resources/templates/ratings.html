@@ -10,6 +10,10 @@
           th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 
+    <script type="text/javascript"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+    <script th:src="@{/scripts/ratings.js}"></script>
+
     <title>Ratings</title>
 </head>
 <body>
@@ -38,7 +42,7 @@
         <div><h2>Course Ratings</h2></div>
 
         <div>
-            <table class="table table-hover table-responsive table-bordered table-primary">
+            <table class="table table-hover table-responsive table-bordered table-primary" id="ratingTable">
                 <thead class="thead-dark">
                 <tr>
                     <th>Course Name</th>
@@ -47,7 +51,7 @@
                     <th style="width: 10%">Delete Rating</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="table1">
                     <tr th:each="rating : ${listRatings}">
                         <td th:text = "${rating.courseName}"/>
                         <td th:text = "${rating.courseRating}"/>
