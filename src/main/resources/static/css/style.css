@@ -52,4 +52,24 @@ form{
 .courseScore{
     margin: 10px 0;
 }
+.login{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+input{
+    text-align: center;
+}
+
+#username{
+    margin-top: 8px;
+}
+#password{
+    margin-top: 5px;
+}
+#login-submit{
+    margin-top: 10px;
+}
 
