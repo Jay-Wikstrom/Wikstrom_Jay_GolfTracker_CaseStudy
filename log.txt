@@ -1,0 +1,33 @@
+2022-06-22 16:48:55.534  INFO 18016 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-22 16:48:55.536  INFO 18016 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-06-22 16:48:55.539  INFO 18016 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-06-22 16:48:59.418  INFO 7536 --- [restartedMain] kstromJayGolfTrackerCaseStudyApplication : Starting WikstromJayGolfTrackerCaseStudyApplication using Java 18 on Jay with PID 7536 (C:\Users\jaywi\IdeaProjects\Wikstrom_Jay_GolfTracker_CaseStudy\target\classes started by jaywi in C:\Users\jaywi\IdeaProjects\Wikstrom_Jay_GolfTracker_CaseStudy)
+2022-06-22 16:48:59.418 DEBUG 7536 --- [restartedMain] kstromJayGolfTrackerCaseStudyApplication : Running with Spring Boot v2.7.0, Spring v5.3.20
+2022-06-22 16:48:59.419  INFO 7536 --- [restartedMain] kstromJayGolfTrackerCaseStudyApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-22 16:48:59.446  INFO 7536 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-22 16:48:59.446  INFO 7536 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-22 16:48:59.901  INFO 7536 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-22 16:48:59.945  INFO 7536 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 4 JPA repository interfaces.
+2022-06-22 16:49:00.069  INFO 7536 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=46f4d7a4-63d5-3282-a86b-b6dc7d9bff6f
+2022-06-22 16:49:00.421  INFO 7536 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-22 16:49:00.427  INFO 7536 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-22 16:49:00.427  INFO 7536 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-22 16:49:00.505  INFO 7536 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-06-22 16:49:00.506  INFO 7536 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1060 ms
+2022-06-22 16:49:00.603  INFO 7536 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-22 16:49:00.624  INFO 7536 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-22 16:49:00.693  INFO 7536 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-22 16:49:00.742  INFO 7536 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-22 16:49:00.774  INFO 7536 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-22 16:49:00.781  INFO 7536 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-06-22 16:49:01.327  INFO 7536 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-22 16:49:01.332  INFO 7536 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-22 16:49:01.636  WARN 7536 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-22 16:49:01.748  INFO 7536 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-22 16:49:01.906  INFO 7536 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7bd0d12e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70e6d50b, org.springframework.security.web.context.SecurityContextPersistenceFilter@f553a22, org.springframework.security.web.header.HeaderWriterFilter@705bb210, org.springframework.security.web.csrf.CsrfFilter@2a27ab4e, org.springframework.security.web.authentication.logout.LogoutFilter@5bd501d0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@62277252, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ae4b094, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29eb43d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66151aaa, org.springframework.security.web.session.SessionManagementFilter@2e92f5c7, org.springframework.security.web.access.ExceptionTranslationFilter@2bb0f8fb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@46784a65]
+2022-06-22 16:49:01.933  INFO 7536 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-22 16:49:02.032  INFO 7536 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-06-22 16:49:02.083  INFO 7536 --- [restartedMain] kstromJayGolfTrackerCaseStudyApplication : Started WikstromJayGolfTrackerCaseStudyApplication in 3.025 seconds (JVM running for 3.634)
+2022-06-22 16:49:09.364  INFO 7536 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-22 16:49:09.365  INFO 7536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-22 16:49:09.366  INFO 7536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
