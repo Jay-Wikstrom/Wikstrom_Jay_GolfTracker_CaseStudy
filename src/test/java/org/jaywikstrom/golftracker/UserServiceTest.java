@@ -1,10 +1,8 @@
 package org.jaywikstrom.golftracker;
 
-
-import org.assertj.core.api.Assertions;
 import org.jaywikstrom.golftracker.model.User;
-import org.jaywikstrom.golftracker.repository.RatingsRepository;
 import org.jaywikstrom.golftracker.repository.UserRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -14,15 +12,10 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class RatingsRepositoryTest {
-
-    @Autowired
-    private RatingsRepository ratingsRepository;
-
+public class UserServiceTest {
     @Autowired
     private UserRepository userRepository;
 
@@ -32,7 +25,7 @@ public class RatingsRepositoryTest {
     public void saveUserTest(){
         User user = User.builder()
                 .firstName("User")
-                .lastName("Test")
+                .lastName("test")
                 .email("usertest@email.com")
                 .password("password123")
                 .build();
@@ -44,8 +37,10 @@ public class RatingsRepositoryTest {
 
     @Test
     @Order(2)
-    public void findAllByUserEmailTest(){
-        Assertions.assertThat(ratingsRepository.findAllByUserEmail("usertest@email.com")).isNotNull();
+    public void findByEmailTest(){
+        User user = userRepository.findByEmail("usertest@email.com");
+
+        Assertions.assertThat(user.getEmail()).isEqualTo("usertest@email.com");
     }
 
     @Test
@@ -57,6 +52,4 @@ public class RatingsRepositoryTest {
 
         Assertions.assertThat(user == null);
     }
-
-
 }

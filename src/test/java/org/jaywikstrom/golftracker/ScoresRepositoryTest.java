@@ -1,9 +1,8 @@
 package org.jaywikstrom.golftracker;
 
-
 import org.assertj.core.api.Assertions;
 import org.jaywikstrom.golftracker.model.User;
-import org.jaywikstrom.golftracker.repository.RatingsRepository;
+import org.jaywikstrom.golftracker.repository.ScoresRepository;
 import org.jaywikstrom.golftracker.repository.UserRepository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -14,15 +13,12 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class RatingsRepositoryTest {
-
+public class ScoresRepositoryTest {
     @Autowired
-    private RatingsRepository ratingsRepository;
-
+    ScoresRepository scoresRepository;
     @Autowired
     private UserRepository userRepository;
 
@@ -45,7 +41,7 @@ public class RatingsRepositoryTest {
     @Test
     @Order(2)
     public void findAllByUserEmailTest(){
-        Assertions.assertThat(ratingsRepository.findAllByUserEmail("usertest@email.com")).isNotNull();
+        Assertions.assertThat(scoresRepository.findAllByUserEmail("usertest@email.com")).isNotNull();
     }
 
     @Test
@@ -57,6 +53,4 @@ public class RatingsRepositoryTest {
 
         Assertions.assertThat(user == null);
     }
-
-
 }

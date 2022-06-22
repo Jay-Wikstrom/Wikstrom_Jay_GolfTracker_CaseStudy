@@ -12,8 +12,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-import java.util.Optional;
-
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -27,10 +25,10 @@ public class UserRepositoryTest {
     @Rollback(value = false)
     public void saveUserTest(){
         User user = User.builder()
-                .firstName("Bob")
-                .lastName("Smith")
-                .email("bobsmith123@gmail.com")
-                .password("bob123")
+                .firstName("User")
+                .lastName("test")
+                .email("usertest@email.com")
+                .password("password123")
                 .build();
 
         userRepository.save(user);
