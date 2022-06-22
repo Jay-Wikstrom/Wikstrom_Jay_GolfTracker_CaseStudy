@@ -7,63 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+    <script type="text/javascript"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+    <script th:src="@{/scripts/script.js}"></script>
+
 
     <title>Course List</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed"
-                        data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                        aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span> <span
-                        class="icon-bar"></span> <span class="icon-bar"></span> <span
-                        class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/index}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/courses}">Courses</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/ratings}">Ratings</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" th:href="@{/scores}">Scores</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active" sec:authorize="isAuthenticated()" >
+                    <a class="navbar-brand" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid text-center">
+    <div class="container container-fluid text-center">
         <div><h2>Course List</h2></div>
 
         <div>
-            <table class="table table-bordered">
+            <table class="table table-hover table-responsive table-bordered table-primary" id="courseTable">
                 <thead class="thead-dark">
-                <tr>
-
-                    <th>Course Name</th>
-                    <th>Course Location</th>
-
-                </tr>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Course Location</th>
+                    </tr>
                 </thead>
                 <tbody>
-
-                <tr th:each="course : ${listCourses}">
-                    <td th:text = "${course.courseName}"/>
-                    <td th:text = "${course.courseLocation}"/>
-                </tr>
+                    <tr th:each="course : ${listCourses}">
+                        <td th:text = "${course.courseName}"/>
+                        <td th:text = "${course.courseLocation}"/>
+                    </tr>
                 </tbody>
 
             </table>
-        </div>
-        <div class="m-2">
-            <a class="h3" th:href="@{/courses/new}" >Add new Course</a>
         </div>
     </div>
 </body>
