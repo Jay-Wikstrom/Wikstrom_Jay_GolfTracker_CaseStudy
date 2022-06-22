@@ -48,9 +48,9 @@ public class RatingsService {
         User user = userRepository.findByEmail(userEmail);
         Long userId = user.getId();
 
+
         ratingsRepository.save(ratings);
         Integer ratingId = ratings.getId();
-        
 
         ratingsRepository.saveUserRatings(ratingId, userId);
     }

@@ -1,12 +1,13 @@
 package org.jaywikstrom.golftracker.controller;
 
-import org.jaywikstrom.golftracker.repository.RatingsRepository;
 import org.jaywikstrom.golftracker.service.RatingsService;
 import org.jaywikstrom.golftracker.service.ScoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+
 
 /*
     This class is used to handle incoming requests,
