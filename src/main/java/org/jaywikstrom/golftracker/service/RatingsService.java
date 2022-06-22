@@ -23,8 +23,9 @@ public class RatingsService {
 
     /*
         Get logged in users email
-        List all the ratings from that user
+        List all the ratings for that user
      */
+
     public List<Ratings> listAllByUserEmail(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userEmail = auth.getName();
@@ -34,7 +35,10 @@ public class RatingsService {
 
     /*
         Get logged in users email
-        Save users ratings
+        Get logged in users id
+        Save users ratings to ratings table
+        Get rating id
+        and save rating id and user id to user ratings join table
      */
     public void save(Ratings ratings){
 
@@ -53,7 +57,9 @@ public class RatingsService {
 
     /*
         Find the rating by id if id is present
+        or throw ratings not found exception if id does not exist
      */
+
     public Ratings get(Integer id) throws RatingsNotFoundException {
         Optional<Ratings> result = ratingsRepository.findById(id);
         if(result.isPresent()){
@@ -63,8 +69,11 @@ public class RatingsService {
     }
 
     /*
-        Delete the rating by id if count not null or 0
+        Count rating by id
+        Throw exception if count is null or not = 0
+        or delete rating if count exists
      */
+
     public void delete(Integer id ) throws RatingsNotFoundException{
         Long count = ratingsRepository.countById(id);
         if(count == null || count == 0){
@@ -73,6 +82,11 @@ public class RatingsService {
         ratingsRepository.deleteById(id);
     }
 
+    /*
+        Get logged in users email
+        Get logged in users id
+        Return number of courses user has rated
+     */
     public Long countCourseRating(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userEmail = auth.getName();

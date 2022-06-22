@@ -1,9 +1,12 @@
 package org.jaywikstrom.golftracker.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Set;
+
+/*
+    This class is used to build the Ratings Table
+ */
 
 @Getter
 @Setter

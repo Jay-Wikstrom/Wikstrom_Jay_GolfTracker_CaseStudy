@@ -25,6 +25,7 @@ public class ScoresService {
         Get logged in users email
         List all the scores from that user
      */
+
     public List<Scores> listAllByUserEmail(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userEmail = auth.getName();
@@ -33,8 +34,12 @@ public class ScoresService {
 
     /*
         Get logged in users email
-        Save users scores
+        Get logged in users id
+        Save users scores to scores table
+        Get score id
+        and save score id and user id to user scores join table
      */
+
     public void save(Scores scores){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userEmail = auth.getName();
@@ -50,7 +55,9 @@ public class ScoresService {
 
     /*
        Find the score by id if id is present
+        or throw score not found exception if id does not exist
     */
+
     public Scores get(Integer id) throws ScoresNotFoundException{
         Optional<Scores> result = scoresRepository.findById(id);
         if(result.isPresent()){
@@ -60,8 +67,11 @@ public class ScoresService {
     }
 
     /*
-        Delete the score by id if count not null or 0
+        Count score by id
+        Throw exception if count is null or not = 0
+        or delete score if count exists
      */
+
     public void delete(Integer id) throws ScoresNotFoundException{
         Long count = scoresRepository.countById(id);
         if(count == null || count == 0){
@@ -69,6 +79,12 @@ public class ScoresService {
         }
         scoresRepository.deleteById(id);
     }
+
+    /*
+        Get logged in users email
+        Get logged in users id
+        Return number of courses user has played
+     */
 
     public Long countCourseScores(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

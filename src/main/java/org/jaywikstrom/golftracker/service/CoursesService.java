@@ -13,15 +13,17 @@ public class CoursesService {
     @Autowired
     private CoursesRepository coursesRepository;
 
-//    public List<Courses> listAll(){
-//        return (List<Courses>) coursesRepository.findAll();
-//    }
+    /*
+        List all courses in ascending order
+     */
+
     public List<Courses> listAll(){
         return (List<Courses>) coursesRepository.findAllByOrderByCourseName();
     }
 
-
-
+    /*
+        Save new Course Data
+     */
     public void save(Courses courses){
         coursesRepository.save(courses);
     }

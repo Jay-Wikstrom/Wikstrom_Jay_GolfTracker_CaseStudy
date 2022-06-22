@@ -2,10 +2,13 @@ package org.jaywikstrom.golftracker.model;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
+
+/*
+    This class is used to build the Scores Table
+ */
 
 @Getter
 @Setter

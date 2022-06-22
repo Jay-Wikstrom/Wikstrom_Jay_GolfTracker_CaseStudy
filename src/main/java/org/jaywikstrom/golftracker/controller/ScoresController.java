@@ -6,15 +6,19 @@ import org.jaywikstrom.golftracker.model.Scores;
 import org.jaywikstrom.golftracker.service.CoursesService;
 import org.jaywikstrom.golftracker.service.ScoresService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.util.List;
+
+/*
+    This class is used to handle incoming requests,
+    prepare the Ratings model,
+    and return the rendered view
+ */
 
 @Controller
 public class ScoresController {
@@ -26,7 +30,8 @@ public class ScoresController {
 
 
     /*
-        Return all scores based on logged in users email
+        Return all scores for logged in user
+        render scores page
      */
     @GetMapping("/scores")
     public String showScores(Model model){
@@ -37,9 +42,11 @@ public class ScoresController {
     }
 
     /*
-        Form for user to add new scores with
-        select menu to select a golf course from database
+        Add a new Score
+        list of all golf courses in the db
+        and render the scores form page
      */
+
     @GetMapping("/scores/new")
     public String showNewScoreForm(Model model){
         model.addAttribute("score", new Scores());
@@ -49,8 +56,10 @@ public class ScoresController {
     }
 
     /*
-        Save user scores form data to the database
+        Save the score data to db
+        and render the scores page with updated data
      */
+
     @PostMapping("/scores/save")
     public String saveScore(Scores score, RedirectAttributes ra){
         scoresService.save(score);
@@ -58,8 +67,13 @@ public class ScoresController {
     }
 
     /*
-        Update the row of scores based on rating id of that row
+        Retrieve row of scores id
+        add previous score row data
+        list of all golf courses in the db
+        render the scores form page with updated data
+        or throw exceptions if rating not found
      */
+
     @GetMapping("/scores/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra){
         try{
@@ -75,8 +89,12 @@ public class ScoresController {
     }
 
     /*
-        Delete the row of scores based on the rating id of that row
+       Retrieve row of scores id
+        delete row
+        render the scores page with row deleted
+        or throw exceptions if score not found
      */
+
     @GetMapping("/scores/delete/{id}")
     public String deleteScore(@PathVariable("id") Integer id, RedirectAttributes ra){
         try {

@@ -8,6 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/*
+    This class is used to handle incoming requests,
+    prepare the model,
+    and return the rendered view
+ */
+
 @Controller
 public class MainController {
 
@@ -17,20 +23,23 @@ public class MainController {
     @Autowired
     ScoresService scoresService;
 
+    // Render the home page
     @GetMapping("/")
     public String root(){
         return "index";
     }
 
+    // Render the login page
     @GetMapping("/login")
     public String login(Model model){
         return "login";
     }
 
-    @GetMapping("/user")
-    public String userIndex(){
-        return "user/index";
-    }
+    /*
+        Render the index page
+        Display the number of courses the logged in user has rated
+        Display the number of courses the logged in user has played at
+     */
 
     @GetMapping("/index")
     public String countRoundsPlayedAndRatings(Model model){

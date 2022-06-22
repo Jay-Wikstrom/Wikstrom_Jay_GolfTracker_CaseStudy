@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-
 import java.util.List;
+
+/*
+    This class is used to handle incoming requests,
+    prepare the Ratings model,
+    and return the rendered view
+ */
 
 @Controller
 public class RatingsController {
@@ -26,8 +30,10 @@ public class RatingsController {
 
 
     /*
-        Return all ratings based on logged in users email
+        Return all ratings for logged in user
+        render ratings page
      */
+
     @GetMapping("/ratings")
     public String showRatings(Model model){
         List<Ratings> listRatings = ratingsService.listAllByUserEmail();
@@ -37,9 +43,11 @@ public class RatingsController {
     }
 
     /*
-        Form for user to add new ratings with
-        select menu to select a golf course from database
+        Add a new Rating
+        list of all golf courses in the db
+        and render the ratings form page
      */
+
     @GetMapping("ratings/new")
     public String showNewRatingForm(Model model){
         model.addAttribute("rating", new Ratings());
@@ -50,8 +58,10 @@ public class RatingsController {
     }
 
     /*
-        Save user ratings form data to the database
+        Save the rating data to db
+        and render the ratings page with updated data
      */
+
     @PostMapping("/ratings/save")
     public String saveRating(Ratings rating, RedirectAttributes ra){
         ratingsService.save(rating);
@@ -60,8 +70,13 @@ public class RatingsController {
 
 
     /*
-        Update the row of ratings based on rating id of that row
+        Retrieve row of ratings id
+        add previous rating row data
+        list of all golf courses in the db
+        render the ratings form page with updated data
+        or throw exceptions if rating not found
      */
+
     @GetMapping("/ratings/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra){
         try {
@@ -76,10 +91,13 @@ public class RatingsController {
         }
     }
 
-
     /*
-        Delete the row of ratings based on the rating id of that row
+        Retrieve row of ratings id
+        delete row
+        render the ratings page with row deleted
+        or throw exceptions if rating not found
      */
+
     @GetMapping("/ratings/delete/{id}")
     public String deleteScore(@PathVariable("id") Integer id, RedirectAttributes ra){
         try {

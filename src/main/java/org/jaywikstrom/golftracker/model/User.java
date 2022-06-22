@@ -1,11 +1,13 @@
 package org.jaywikstrom.golftracker.model;
 
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
+
+/*
+    This class is used to build the User Table
+ */
 
 @Getter
 @Setter
@@ -19,7 +21,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
 
     private String firstName;
     private String lastName;
