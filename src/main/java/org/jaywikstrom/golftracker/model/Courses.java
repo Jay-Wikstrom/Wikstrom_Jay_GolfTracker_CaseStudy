@@ -6,6 +6,7 @@ import javax.persistence.*;
 /*
     This class is used to build the Courses Table
  */
+
 @Getter
 @Setter
 @NoArgsConstructor

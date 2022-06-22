@@ -28,7 +28,6 @@ public class RatingsController {
     @Autowired
     private CoursesService coursesService;
 
-
     /*
         Return all ratings for logged in user
         render ratings page
@@ -67,7 +66,6 @@ public class RatingsController {
         ratingsService.save(rating);
         return "redirect:/ratings";
     }
-
 
     /*
         Retrieve row of ratings id

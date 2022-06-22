@@ -33,6 +33,7 @@ public class ScoresController {
         Return all scores for logged in user
         render scores page
      */
+
     @GetMapping("/scores")
     public String showScores(Model model){
         List<Scores> listScores = scoresService.listAllByUserEmail();

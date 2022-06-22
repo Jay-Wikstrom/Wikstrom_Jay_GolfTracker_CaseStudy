@@ -9,6 +9,7 @@ import javax.persistence.Id;
 /*
     This class is used to build the Role Table
  */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

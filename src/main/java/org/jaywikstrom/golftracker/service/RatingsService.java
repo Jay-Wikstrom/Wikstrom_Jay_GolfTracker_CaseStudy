@@ -40,6 +40,7 @@ public class RatingsService {
         Get rating id
         and save rating id and user id to user ratings join table
      */
+
     public void save(Ratings ratings){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -87,6 +88,7 @@ public class RatingsService {
         Get logged in users id
         Return number of courses user has rated
      */
+
     public Long countCourseRating(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userEmail = auth.getName();
