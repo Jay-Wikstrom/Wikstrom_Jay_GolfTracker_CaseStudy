@@ -86,3 +86,7 @@ input{
 .clickable{
     cursor:pointer;
 }
+
+th:hover{
+    background-color: #81d720;
+}
