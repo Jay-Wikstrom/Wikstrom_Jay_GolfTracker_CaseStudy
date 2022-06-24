@@ -169,4 +169,4 @@ VALUES ("Cedar Creek GC", "Albertville"),
        ("Les Bolstad GC", "St. Paul"),
        ("Indian Hills", "Stillwater"),
        ("Loggers Trail", "Stillwater"),
-       ("Oak Glen", "Stillwater"),
+       ("Oak Glen", "Stillwater");
