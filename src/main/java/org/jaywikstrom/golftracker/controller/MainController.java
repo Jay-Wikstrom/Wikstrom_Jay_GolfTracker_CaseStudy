@@ -25,13 +25,19 @@ public class MainController {
     // Render the home page
     @GetMapping("/")
     public String root(){
-        return "index";
+        return "redirect:/index";
     }
 
     // Render the login page
     @GetMapping("/login")
     public String login(Model model){
         return "login";
+    }
+
+    // Log user into index page
+    @GetMapping("/user")
+    public String userIndex() {
+        return "user/index";
     }
 
     /*

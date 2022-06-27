@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,6 +17,7 @@
                 <li class="nav-item active">
                     <a class="navbar-brand" th:href="@{/index}">Home</a>
                 </li>
+
             </ul>
         </div>
     </nav>
@@ -32,31 +33,28 @@
                 <div th:if="${param.logout}">
                     <div class="alert alert-info">You have been logged out.</div>
                 </div>
-                <div class="">
 
-                    <input type="text"
-                           id="username" name="username" class="form-control"
-                           autofocus="autofocus" placeholder="Email" />
-                </div>
-                <div class="">
+                <input type="text"
+                       id="username" name="username" class="form-control"
+                       autofocus="autofocus" placeholder="Email" />
 
-                    <input type="password"
-                           id="password" name="password" class="form-control"
-                           placeholder="Password" />
-                </div>
-                <div class="">
-                    <div class="row justify-content-md-center">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <input type="submit" name="login-submit" id="login-submit"
-                                   class="form-control btn btn-primary" value="Log In"/>
-                        </div>
+                <input type="password"
+                       id="password" name="password" class="form-control"
+                       placeholder="Password" />
+
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <input type="submit" name="login-submit" id="login-submit"
+                               class="form-control btn btn-primary" value="Log In"/>
                     </div>
                 </div>
-                <div class="">
-                 <span>New user? <a th:href="@{/registration}">Register
-                       here</a></span>
-                </div>
+
+
+             <span>New user? <a th:href="@{/registration}">Register
+                   here</a></span>
+
             </form>
+
         </div>
     </div>
 
